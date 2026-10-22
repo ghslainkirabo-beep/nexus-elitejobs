@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EliteJobs</string>
+    <string name="title_activity_main">EliteJobs</string>
+    <string name="package_name">com.elitejobs.nexus</string>
+    <string name="custom_url_scheme">com.elitejobs.nexus</string>
+</resources>
