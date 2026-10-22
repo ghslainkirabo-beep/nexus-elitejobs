@@ -27,9 +27,10 @@ jobs:
           npm install
           npm run build
 
-      - name: Sync Capacitor iOS
+      - name: Add and Sync Capacitor iOS
         run: |
           cd frontend-pwa
+          npx cap add ios
           npx cap sync ios
 
       - name: Build iOS Workspace
