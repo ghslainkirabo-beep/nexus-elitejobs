@@ -35,8 +35,8 @@ jobs:
           npx cap add ios
           npx cap sync ios
 
-      - name: Build iOS Workspace
+      - name: Install Pods and Build iOS Workspace
         run: |
           cd frontend-pwa/ios/App
-          ls -la
+          pod install
           xcodebuild -workspace App.xcworkspace -scheme App -sdk iphonesimulator -configuration Debug CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
