@@ -27,14 +27,16 @@ jobs:
           npm install
           npm run build
 
-      - name: Install Capacitor iOS and Sync
+      - name: Clean, Add Capacitor iOS, and Sync
         run: |
           cd frontend-pwa
           npm install @capacitor/ios
+          rm -rf ios
           npx cap add ios
           npx cap sync ios
 
       - name: Build iOS Workspace
         run: |
           cd frontend-pwa/ios/App
+          ls -la
           xcodebuild -workspace App.xcworkspace -scheme App -sdk iphonesimulator -configuration Debug CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
