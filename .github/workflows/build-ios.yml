@@ -11,10 +11,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: frontend-pwa/package-lock.json
+
+      - name: Verify Node Version
+        run: node -v
 
       - name: Install Dependencies & Build Web Assets
         run: |
@@ -22,10 +27,9 @@ jobs:
           npm install
           npm run build
 
-      - name: Initialize Capacitor iOS
+      - name: Sync Capacitor iOS
         run: |
           cd frontend-pwa
-          npx cap add ios
           npx cap sync ios
 
       - name: Build iOS Workspace
